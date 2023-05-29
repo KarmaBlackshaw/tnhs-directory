@@ -1,5 +1,5 @@
 <script setup>
-
+import constants from '@/constants'
 </script>
 
 <template>
@@ -13,7 +13,7 @@
       </h1>
 
       <h5 class="text-xl">
-        Engage with Legacy2015 for inspiring insights, tech updates, business strategies, and beyond. Let's keep the conversation going.
+        Engage with {{ constants.SITE_TITLE }} for inspiring insights, tech updates, business strategies, and beyond. Let's keep the conversation going.
       </h5>
 
       <div class="flex flex-col gap-3">

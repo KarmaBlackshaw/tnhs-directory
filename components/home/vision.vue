@@ -1,5 +1,6 @@
 <script setup>
 
+import constants from '@/constants'
 </script>
 
 <template>
@@ -13,7 +14,7 @@
       </h1>
 
       <h2 class="text-[35px] sm:text-[48px] font-medium leading-[1.4]">
-        Empower a brighter future through a network of <span class="font-bold text-blue-500">Legacy2015</span> alumni, creating transformative change in every sector of society.
+        Empower a brighter future through a network of <span class="font-bold text-blue-500">{{ constants.SITE_TITLE }}</span> alumni, creating transformative change in every sector of society.
       </h2>
     </div>
   </section>

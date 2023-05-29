@@ -1,5 +1,5 @@
 <script setup>
-
+import constants from '@/constants'
 </script>
 
 <template>
@@ -12,7 +12,7 @@
     <div class="z-10">
       <div class="max-w-[100ch] text-center flex flex-col gap-5 p-5">
         <section-title>
-          We are Legacy2015
+          We are {{ constants.SITE_TITLE }}
         </section-title>
 
         <h2 class="text-[35px] sm:text-[48px] font-medium leading-[1.4]">

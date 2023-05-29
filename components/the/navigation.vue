@@ -38,7 +38,7 @@ function toggle () {
     class="fixed top-[64px] w-full hidden"
   >
     <ul
-      class="p-10 left-0 w-full flex flex-col items-center gap-4 bg-white transition z-[80]"
+      class="p-10 left-0 w-full flex flex-col items-center gap-4 bg-white transition z-[2]"
     >
       <li
         class="cursor-pointer hover:text-blue-500"
@@ -75,7 +75,7 @@ function toggle () {
     </ul>
   </div>
 
-  <nav class="h-[64px] w-full bg-white flex justify-between items-center px-10 fixed z-[99]">
+  <nav class="h-[64px] w-full bg-white flex justify-between items-center px-10 fixed z-[50]">
     <h1 class="text-xl text-blue-500 font-josefin">
       {{ constants.SITE_TITLE }}
     </h1>

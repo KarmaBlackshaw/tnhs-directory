@@ -19,6 +19,7 @@ export default defineNuxtConfig({
       Mulish: true,
       Poppins: true,
       'Josefin Sans': true,
+      'Ubuntu Mono': true,
       'Monomaniac One': true
 
     }

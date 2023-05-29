@@ -17,6 +17,7 @@ module.exports = {
         'roboto': ['Roboto', ...defaultTheme.fontFamily.sans],
         'mulish': ['Mulish', ...defaultTheme.fontFamily.sans],
         'monomaniac': ['Monomaniac One', ...defaultTheme.fontFamily.sans],
+        'ubuntu-mono': ['Ubuntu Mono', ...defaultTheme.fontFamily.sans],
         'josefin': ['Josefin Sans', ...defaultTheme.fontFamily.sans],
         'poppins': ['Poppins', ...defaultTheme.fontFamily.sans]
       }

@@ -5,6 +5,7 @@ setInterval(() => {
   isShowSplashScreen.value = false
 }, 3000)
 </script>
+
 <template>
   <div class="flex flex-col gap-10">
     <the-splash-screen v-if="isShowSplashScreen" />

@@ -1,4 +1,5 @@
 <script setup>
+import _ from 'lodash'
 import Typed from 'typed.js'
 import constants from '@/constants'
 const loadingPhrases = [
@@ -22,7 +23,7 @@ const loadingPhrases = [
 
 onMounted(() => {
   new Typed('#typewriter', {
-    strings: loadingPhrases,
+    strings: _.shuffle(loadingPhrases),
     typeSpeed: 10,
     loop: true
   })

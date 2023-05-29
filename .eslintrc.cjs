@@ -2,7 +2,7 @@
 module.exports = {
   "root": true,
   "extends": [
-    './.eslintrc-auto-import.json',
+    './.nuxt/.eslint.globals.json',
     "plugin:vue/vue3-essential",
     "plugin:vue/vue3-recommended",
     "plugin:vue/vue3-strongly-recommended",

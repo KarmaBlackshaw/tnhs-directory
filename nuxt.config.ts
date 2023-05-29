@@ -1,10 +1,26 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  css: ['~/assets/css/main.scss'],
+  css: [
+    '~/assets/css/icons.scss',
+    '~/assets/css/main.scss'
+  ],
+  modules: [
+    '@nuxtjs/google-fonts'
+  ],
   postcss: {
     plugins: {
       tailwindcss: {},
-      autoprefixer: {},
-    },
+      autoprefixer: {}
+    }
   },
+  googleFonts: {
+    families: {
+      Roboto: true,
+      Mulish: true,
+      Poppins: true,
+      'Josefin Sans': true,
+      'Monomaniac One': true
+
+    }
+  }
 })

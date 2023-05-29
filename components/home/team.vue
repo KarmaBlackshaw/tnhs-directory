@@ -1,7 +1,29 @@
 <script setup>
+const assets = import.meta.glob('~/assets/images/teams/*', {
+  eager: true,
+  import: 'default'
+})
+
+const thumbnailMap = Object.fromEntries(
+  Object.entries(assets)
+    .map(([key, value]) => {
+      return [key.replace('/assets/images/teams/', ''), value]
+    })
+)
+
+const users = [
+  {
+    name: 'Ernie Jeash Villahermosa',
+    description: 'A hardcore encoder',
+    thumbnail: thumbnailMap['villahermosa-ernie-jeash.jpg'],
+    socials: [
+      { type: 'facebook', url: 'https://www.facebook.com/KarmaBlackshaw/' },
+      { type: 'instagram', url: 'https://www.instagram.com/karmablackshaw/?hl=en' }
+    ]
+  }
+]
 
 </script>
-
 <template>
   <section
     id="team"
@@ -24,13 +46,13 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10">
         <div
-          v-for="i in 50"
-          :key="i"
+          v-for="(user, userKey) in users"
+          :key="userKey"
           class="flex sm:flex-col gap-10"
         >
           <div class="flex-1">
             <img
-              src="https://avatars.githubusercontent.com/u/40014179?s=400&u=fb5a08d868379ecdad371e286b40136d0f999f59&v=4"
+              :src="user.thumbnail"
               alt=""
               class="wh-"
             >
@@ -38,20 +60,32 @@
 
           <div class="flex-1 sm:flex sm:flex-col gap-1">
             <h1 class="font-semibold text-sm">
-              Ernie Jeash Villahermosa
+              {{ user.name }}
             </h1>
 
             <h2 class="text-sm text-black/50 font-poppins">
-              A hardcore encoder
+              {{ user.description }}
             </h2>
 
             <ul class="flex gap-2">
-              <li>
-                <i class="i-devicon-plain-facebook text-gray-500 hover:scale-110 transition cursor-pointer"></i>
-              </li>
+              <li
+                v-for="(social, socialKey) in user.socials"
+                :key="socialKey"
+              >
+                <a
+                  :href="social.url"
+                  target="_blank"
+                >
+                  <i
+                    v-if="social.type === 'facebook'"
+                    class="i-devicon-plain-facebook text-gray-500 hover:scale-110 transition cursor-pointer"
+                  ></i>
 
-              <li>
-                <i class="i-bi-instagram text-gray-500 hover:scale-110 transition cursor-pointer"></i>
+                  <i
+                    v-else-if="social.type === 'instagram'"
+                    class="i-bi-instagram text-gray-500 hover:scale-110 transition cursor-pointer"
+                  ></i>
+                </a>
               </li>
             </ul>
           </div>

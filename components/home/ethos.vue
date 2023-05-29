@@ -40,6 +40,8 @@ const ethos = [
           v-for="(etho, ethoKey) in ethos"
           :key="ethoKey"
           class="grow border border-gray-200 rounded-lg p-10 flex flex-col gap-10 flex-1"
+          data-aos="flip-left"
+          :data-aos-delay="200 * ethoKey"
         >
           <i
             :class="`

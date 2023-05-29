@@ -26,7 +26,7 @@
         <div
           v-for="i in 50"
           :key="i"
-          class="flex sm:flex-col gap-10"
+          class="flex sm:flex-col gap-5"
         >
           <div class="flex-1">
             <img

@@ -82,7 +82,16 @@ function toggle () {
       </ul>
     </div>
 
-    <nav class="h-[64px] w-full bg-white flex justify-between items-center px-10 fixed z-[50]">
+    <nav
+      class="
+        h-[64px] w-full
+        bg-white
+        flex justify-between items-center
+        px-10
+        fixed
+        z-[50]
+      "
+    >
       <h1 class="text-xl text-blue-500 font-josefin">
         {{ constants.SITE_TITLE }}
       </h1>
@@ -99,7 +108,7 @@ function toggle () {
         ></i>
       </button>
 
-      <ul class="hidden sm:flex items-center gap-4">
+      <ul class="hidden sm:flex items-center gap-8">
         <li
           class="cursor-pointer hover:text-blue-500"
           @click="scrollToSection('home')"

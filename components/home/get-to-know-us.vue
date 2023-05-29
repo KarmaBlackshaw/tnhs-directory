@@ -2,7 +2,7 @@
 
 import constants from '@/constants'
 
-const assets = import.meta.glob('~/assets/images/gallery/8th-alumni/*', {
+const assets = import.meta.glob('~/assets/images/gallery/8th-alumni/*compressed*', {
   eager: true,
   import: 'default'
 })

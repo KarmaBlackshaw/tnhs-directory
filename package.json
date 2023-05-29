@@ -21,8 +21,11 @@
   "dependencies": {
     "@vueuse/core": "^10.1.2",
     "aos": "^2.3.4",
+    "bluebird": "^3.7.2",
+    "fast-glob": "^3.2.12",
     "lodash": "^4.17.21",
     "sass": "^1.62.1",
+    "sharp": "^0.32.1",
     "typed.js": "^2.0.16"
   }
 }

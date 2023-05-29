@@ -10,7 +10,7 @@ import constants from '@/constants'
     <div class="bg-[url(/assets/svg/grid.svg)] absolute inset-0 bg-center z-0"></div>
 
     <div class="z-[1]">
-      <div class="max-w-[100ch] text-center flex flex-col gap-5 p-5">
+      <div class="max-w-[100ch] text-center flex flex-col gap-10 p-10">
         <section-title>
           We are {{ constants.SITE_TITLE }}
         </section-title>

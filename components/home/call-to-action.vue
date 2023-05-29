@@ -19,7 +19,7 @@ import constants from '@/constants'
       <div class="flex flex-col gap-3">
         <span class="text-lg text-black/50">Connect with us on our socials</span>
 
-        <ul class="flex gap-5">
+        <ul class="flex gap-10">
           <li>
             <i class="i-ic-outline-facebook text-2xl"></i>
           </li>

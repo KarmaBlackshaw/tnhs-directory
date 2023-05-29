@@ -1,7 +1,9 @@
 <script setup>
 import constants from '@/constants'
+import { onClickOutside } from '@vueuse/core'
 
 const popup = ref(null)
+const nav = ref(null)
 
 const isShowDropdown = ref(false)
 
@@ -26,6 +28,10 @@ watchEffect(() => {
   }
 })
 
+onClickOutside(nav, () => {
+  isShowDropdown.value = false
+})
+
 function toggle () {
   isShowDropdown.value = !isShowDropdown.value
 }
@@ -33,94 +39,101 @@ function toggle () {
 </script>
 
 <template>
-  <div
-    ref="popup"
-    class="fixed top-[64px] w-full hidden"
-  >
-    <ul
-      class="p-10 left-0 w-full flex flex-col items-center gap-4 bg-white transition z-[2]"
+  <section ref="nav">
+    <div
+      ref="popup"
+      class="fixed top-[64px] w-full hidden bg-white z-[10]"
     >
-      <li
-        class="cursor-pointer hover:text-blue-500"
-        @click="scrollToSection('home')"
+      <ul
+        class="p-10 left-0 w-full flex flex-col items-center gap-4 bg-white transition "
       >
-        Home
-      </li>
-      <li
-        class="cursor-pointer hover:text-blue-500"
-        @click="scrollToSection('vision')"
-      >
-        Vision
-      </li>
-      <li
-        class="cursor-pointer hover:text-blue-500"
-        @click="scrollToSection('ethos')"
-      >
-        Ethos
-      </li>
-      <li
-        class="cursor-pointer hover:text-blue-500"
-        @click="scrollToSection('team')"
-      >
-        Team
-      </li>
-      <li>
-        <button
-          class="bg-blue-500 text-white px-3 h-[35px] flex items-center rounded text-sm"
-          @click="scrollToSection('call-to-action')"
+        <li
+          class="cursor-pointer hover:text-blue-500"
+          @click="scrollToSection('home')"
         >
-          Contact Us
-        </button>
-      </li>
-    </ul>
-  </div>
-
-  <nav class="h-[64px] w-full bg-white flex justify-between items-center px-10 fixed z-[50]">
-    <h1 class="text-xl text-blue-500 font-josefin">
-      {{ constants.SITE_TITLE }}
-    </h1>
-
-    <button
-      class="sm:hidden"
-      @click="toggle"
-    >
-      <i class="i-streamline-interface-setting-menu-2-button-parallel-horizontal-lines-menu-navigation-staggered-three-hamburger"></i>
-    </button>
-
-    <ul class="hidden sm:flex items-center gap-4">
-      <li
-        class="cursor-pointer hover:text-blue-500"
-        @click="scrollToSection('home')"
-      >
-        Home
-      </li>
-      <li
-        class="cursor-pointer hover:text-blue-500"
-        @click="scrollToSection('vision')"
-      >
-        Vision
-      </li>
-      <li
-        class="cursor-pointer hover:text-blue-500"
-        @click="scrollToSection('ethos')"
-      >
-        Ethos
-      </li>
-      <li
-        class="cursor-pointer hover:text-blue-500"
-        @click="scrollToSection('team')"
-      >
-        Team
-      </li>
-      <li>
-        <button
-          class="bg-blue-500 text-white px-3 h-[35px] flex items-center rounded text-sm"
-          @click="scrollToSection('call-to-action')"
+          Home
+        </li>
+        <li
+          class="cursor-pointer hover:text-blue-500"
+          @click="scrollToSection('vision')"
         >
-          Contact Us
-        </button>
-      </li>
-    </ul>
-  </nav>
+          Vision
+        </li>
+        <li
+          class="cursor-pointer hover:text-blue-500"
+          @click="scrollToSection('ethos')"
+        >
+          Ethos
+        </li>
+        <li
+          class="cursor-pointer hover:text-blue-500"
+          @click="scrollToSection('team')"
+        >
+          Team
+        </li>
+        <li>
+          <button
+            class="bg-blue-500 text-white px-3 h-[35px] flex items-center rounded text-sm"
+            @click="scrollToSection('call-to-action')"
+          >
+            Contact Us
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <nav class="h-[64px] w-full bg-white flex justify-between items-center px-10 fixed z-[50]">
+      <h1 class="text-xl text-blue-500 font-josefin">
+        {{ constants.SITE_TITLE }}
+      </h1>
+
+      <button
+        class="sm:hidden"
+        @click="toggle"
+      >
+        <i
+          :class="
+            isShowDropdown
+              ? 'i-ic-sharp-close'
+              : 'i-streamline-interface-setting-menu-2-button-parallel-horizontal-lines-menu-navigation-staggered-three-hamburger'"
+        ></i>
+      </button>
+
+      <ul class="hidden sm:flex items-center gap-4">
+        <li
+          class="cursor-pointer hover:text-blue-500"
+          @click="scrollToSection('home')"
+        >
+          Home
+        </li>
+        <li
+          class="cursor-pointer hover:text-blue-500"
+          @click="scrollToSection('vision')"
+        >
+          Vision
+        </li>
+        <li
+          class="cursor-pointer hover:text-blue-500"
+          @click="scrollToSection('ethos')"
+        >
+          Ethos
+        </li>
+        <li
+          class="cursor-pointer hover:text-blue-500"
+          @click="scrollToSection('team')"
+        >
+          Team
+        </li>
+        <li>
+          <button
+            class="bg-blue-500 text-white px-3 h-[35px] flex items-center rounded text-sm"
+            @click="scrollToSection('call-to-action')"
+          >
+            Contact Us
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </section>
 </template>
 

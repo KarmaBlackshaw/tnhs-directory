@@ -26,7 +26,7 @@ const ethos = [
     id="ethos"
     class="flex items-center justify-center min-h-screen"
   >
-    <div class="max-w-[1000px] flex flex-col gap-10 p-5">
+    <div class="max-w-[1000px] flex flex-col gap-10 p-10">
       <section-title>
         Our ethos
       </section-title>
@@ -39,7 +39,7 @@ const ethos = [
         <div
           v-for="(etho, ethoKey) in ethos"
           :key="ethoKey"
-          class="grow border border-gray-200 rounded-lg p-10 flex flex-col gap-5 flex-1"
+          class="grow border border-gray-200 rounded-lg p-10 flex flex-col gap-10 flex-1"
         >
           <i
             :class="`

@@ -12,7 +12,7 @@ const assets = import.meta.glob('~/assets/images/gallery/8th-alumni/*', {
 <template>
   <section
     id="get-to-know-us"
-    class="p-5 flex items-center justify-center"
+    class="p-10 flex items-center justify-center"
   >
     <div class="flex flex-col gap-10 max-w-[1000px]">
       <h1 class="text-5xl font-semibold">

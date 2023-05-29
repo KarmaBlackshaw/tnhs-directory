@@ -7,7 +7,7 @@
     id="team"
     class="flex items-center justify-center min-min-h-screen"
   >
-    <div class="max-w-[1000px] flex flex-col gap-10 p-5">
+    <div class="max-w-[1000px] flex flex-col gap-10 p-10">
       <section-title>
         Our team
       </section-title>
@@ -26,7 +26,7 @@
         <div
           v-for="i in 50"
           :key="i"
-          class="flex sm:flex-col gap-5"
+          class="flex sm:flex-col gap-10"
         >
           <div class="flex-1">
             <img

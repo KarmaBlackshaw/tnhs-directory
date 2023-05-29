@@ -3,7 +3,7 @@ import constants from '@/constants'
 </script>
 
 <template>
-  <footer class="container mx-auto p-5 text-center">
+  <footer class="container mx-auto p-10 text-center">
     <div class="flex flex-col sm:flex-row gap-10 justify-between mb-5">
       <div class="flex-1">
         <h1 class="text-blue-500 text-3xl font-josefin">

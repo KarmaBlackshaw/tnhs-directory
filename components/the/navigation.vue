@@ -18,8 +18,10 @@ watchEffect(() => {
   if (isShowDropdown.value) {
     popup.value.style.transform = `translateY(${0}px)`
     popup.value.classList.add('shadow-lg')
+    popup.value.classList.remove('hidden')
   } else {
     popup.value.style.transform = `translateY(-${height}px)`
+    popup.value.classList.add('hidden')
     popup.value.classList.remove('shadow-lg')
   }
 })
@@ -31,43 +33,47 @@ function toggle () {
 </script>
 
 <template>
-  <ul
+  <div
     ref="popup"
-    class="fixed top-[64px] p-10 left-0 w-full flex flex-col items-center gap-4 bg-white transition z-[80]"
+    class="fixed top-[64px] w-full hidden"
   >
-    <li
-      class="cursor-pointer hover:text-blue-500"
-      @click="scrollToSection('home')"
+    <ul
+      class="p-10 left-0 w-full flex flex-col items-center gap-4 bg-white transition z-[80]"
     >
-      Home
-    </li>
-    <li
-      class="cursor-pointer hover:text-blue-500"
-      @click="scrollToSection('vision')"
-    >
-      Vision
-    </li>
-    <li
-      class="cursor-pointer hover:text-blue-500"
-      @click="scrollToSection('ethos')"
-    >
-      Ethos
-    </li>
-    <li
-      class="cursor-pointer hover:text-blue-500"
-      @click="scrollToSection('team')"
-    >
-      Team
-    </li>
-    <li>
-      <button
-        class="bg-blue-500 text-white px-3 h-[35px] flex items-center rounded text-sm"
-        @click="scrollToSection('call-to-action')"
+      <li
+        class="cursor-pointer hover:text-blue-500"
+        @click="scrollToSection('home')"
       >
-        Contact Us
-      </button>
-    </li>
-  </ul>
+        Home
+      </li>
+      <li
+        class="cursor-pointer hover:text-blue-500"
+        @click="scrollToSection('vision')"
+      >
+        Vision
+      </li>
+      <li
+        class="cursor-pointer hover:text-blue-500"
+        @click="scrollToSection('ethos')"
+      >
+        Ethos
+      </li>
+      <li
+        class="cursor-pointer hover:text-blue-500"
+        @click="scrollToSection('team')"
+      >
+        Team
+      </li>
+      <li>
+        <button
+          class="bg-blue-500 text-white px-3 h-[35px] flex items-center rounded text-sm"
+          @click="scrollToSection('call-to-action')"
+        >
+          Contact Us
+        </button>
+      </li>
+    </ul>
+  </div>
 
   <nav class="h-[64px] w-full bg-white flex justify-between items-center px-10 fixed z-[99]">
     <h1 class="text-xl text-blue-500 font-josefin">

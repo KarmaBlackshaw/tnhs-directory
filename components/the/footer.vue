@@ -6,7 +6,9 @@ import constants from '@/constants'
   <footer class="container mx-auto p-5 text-center">
     <div class="flex flex-col sm:flex-row gap-10 justify-between mb-5">
       <div class="flex-1">
-        {{ constants.SITE_TITLE }}
+        <h1 class="text-blue-500 text-3xl font-josefin">
+          {{ constants.SITE_TITLE }}
+        </h1>
       </div>
 
       <div class="flex-1">

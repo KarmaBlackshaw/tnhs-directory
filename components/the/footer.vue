@@ -1,9 +1,39 @@
 <script setup>
 import constants from '@/constants'
+
+const whoWeAre = [
+  {
+    text: 'Home',
+    section: 'home'
+  },
+  {
+    text: 'Vision',
+    section: 'vision'
+  },
+  {
+    text: 'Ethos',
+    section: 'ethos'
+  },
+  {
+    text: 'Team',
+    section: 'team'
+  }
+]
+
+const socials = [
+  { text: 'Facebook' },
+  { text: 'Instagram' },
+  { text: 'Linkedin' },
+  { text: 'Tiktok' },
+  { text: 'Youtube' }
+]
 </script>
 
 <template>
-  <footer class="container mx-auto p-10 text-center">
+  <footer
+    id="footer"
+    class="container mx-auto p-10 text-center"
+  >
     <div class="flex flex-col sm:flex-row gap-10 justify-between mb-5">
       <div class="flex-1">
         <h1 class="text-blue-500 text-3xl font-josefin">
@@ -17,10 +47,27 @@ import constants from '@/constants'
         </h1>
 
         <ul class="flex flex-col gap-2 text-lg">
-          <li>About</li>
-          <li>Vision</li>
-          <li>Ethos</li>
-          <li>Team</li>
+          <li
+            v-for="(item, itemKey) in whoWeAre"
+            :key="itemKey"
+            class="
+              cursor-pointer
+              hover:text-blue-500
+              group
+              flex items-center justify-center gap-2
+            "
+            @click="scrollToSection(item.section)"
+          >
+            {{ item.text }}
+
+            <i
+              class="
+                i-ic-outline-arrow-outward
+                text-xs
+                text-gray-500 group-hover:text-blue-500
+              "
+            ></i>
+          </li>
         </ul>
       </div>
 
@@ -43,20 +90,25 @@ import constants from '@/constants'
         </h1>
 
         <ul class="flex flex-col gap-2 text-lg">
-          <li>
-            Facebook <i class="i-ic-outline-arrow-outward text-xs text-gray-500"></i>
-          </li>
-          <li>
-            Instagram <i class="i-ic-outline-arrow-outward text-xs text-gray-500"></i>
-          </li>
-          <li>
-            Linkedin <i class="i-ic-outline-arrow-outward text-xs text-gray-500"></i>
-          </li>
-          <li>
-            Tiktok <i class="i-ic-outline-arrow-outward text-xs text-gray-500"></i>
-          </li>
-          <li>
-            Youtube <i class="i-ic-outline-arrow-outward text-xs text-gray-500"></i>
+          <li
+            v-for="(item, itemKey) in socials"
+            :key="itemKey"
+            class="
+              cursor-pointer
+              hover:text-blue-500
+              group
+              flex items-center justify-center gap-2
+            "
+          >
+            {{ item.text }}
+
+            <i
+              class="
+                i-ic-outline-arrow-outward
+                text-xs
+                text-gray-500 group-hover:text-blue-500
+              "
+            ></i>
           </li>
         </ul>
       </div>

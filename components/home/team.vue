@@ -16,9 +16,18 @@ const thumbnailMap = Object.fromEntries(
     })
 )
 
-const users = Array.from({ length: 50 }, () => {
-  return {
+const users = [
+  {
     name: 'Ernie Jeash Villahermosa',
+    description: "You're aren't",
+    thumbnail: thumbnailMap['villahermosa-ernie-jeash.jpg'],
+    socials: [
+      { type: 'facebook', url: 'https://www.facebook.com/KarmaBlackshaw/' },
+      { type: 'instagram', url: 'https://www.instagram.com/karmablackshaw/?hl=en' }
+    ]
+  },
+  {
+    name: 'Julius Reil Yves Alvior',
     description: 'A hardcore encoder',
     thumbnail: thumbnailMap['villahermosa-ernie-jeash.jpg'],
     socials: [
@@ -26,6 +35,24 @@ const users = Array.from({ length: 50 }, () => {
       { type: 'instagram', url: 'https://www.instagram.com/karmablackshaw/?hl=en' }
     ]
   }
+]
+
+const userSearchQuery = ref('')
+
+const usersFiltered = computed(() => {
+  const searchableFields = ['name', 'description']
+
+  const regex = new RegExp(userSearchQuery.value, 'gi')
+
+  return users
+    .filter(user => {
+      return searchableFields.some(field => {
+        return regex.test(user[field])
+      })
+    })
+    .sort((x, y) => {
+      return x.name > y.name
+    })
 })
 
 </script>
@@ -49,9 +76,21 @@ const users = Array.from({ length: 50 }, () => {
         </h3>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10">
+      <div>
+        <input
+          v-model="userSearchQuery"
+          type="search"
+          class="border !outline-none px-3 py-2 rounded w-full text-sm"
+          placeholder="Search the people you love"
+        >
+      </div>
+
+      <div
+        v-if="usersFiltered.length"
+        class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10"
+      >
         <div
-          v-for="(user, userKey) in users"
+          v-for="(user, userKey) in usersFiltered"
           :key="userKey"
           class="flex sm:flex-col gap-5"
           data-aos="zoom-out-up"
@@ -97,6 +136,17 @@ const users = Array.from({ length: 50 }, () => {
             </ul>
           </div>
         </div>
+      </div>
+
+      <div
+        v-else
+        class="flex items-center justify-center flex-col gap-3"
+      >
+        <i class="i-line-md-coffee-half-empty-twotone-loop text-5xl text-gray-300"></i>
+
+        <h1 class="text-gray-300">
+          Wow, such empty list
+        </h1>
       </div>
     </div>
   </section>

@@ -5,7 +5,7 @@ import constants from '@/constants'
 <template>
   <section
     id="call-to-action"
-    class="bg-blue-500/10 p-10 flex items-center justify-center"
+    class="bg-blue-500/10 py-20 px-10 flex items-center justify-center"
   >
     <div class="flex flex-col gap-3 max-w-[1000px]">
       <h1 class="text-5xl font-semibold">
@@ -21,11 +21,11 @@ import constants from '@/constants'
 
         <ul class="flex gap-3">
           <li>
-            <i class="i-ic-outline-facebook text-2xl"></i>
+            <i class="i-ic-outline-facebook text-2xl text-gray-400"></i>
           </li>
 
           <li>
-            <i class="i-bi-instagram text-2xl"></i>
+            <i class="i-bi-instagram text-2xl text-gray-400"></i>
           </li>
         </ul>
       </div>

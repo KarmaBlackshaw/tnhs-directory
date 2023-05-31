@@ -1,6 +1,6 @@
 <script setup>
 import constants from '@/constants'
-import { onClickOutside } from '@vueuse/core'
+import { onClickOutside, useEventListener } from '@vueuse/core'
 
 const popup = ref(null)
 const nav = ref(null)
@@ -36,13 +36,26 @@ function toggle () {
   isShowDropdown.value = !isShowDropdown.value
 }
 
+const isFooterVisible = ref(false)
+
+onMounted(() => {
+  const footer = document.getElementById('footer')
+
+  isFooterVisible.value = isInViewport(footer)
+  useEventListener(document, 'scroll', () => {
+    isFooterVisible.value = isInViewport(footer)
+  })
+})
+
 </script>
 
 <template>
   <section ref="nav">
     <div
       ref="popup"
-      class="fixed top-[64px] w-full hidden bg-white z-[10]"
+      :class="`
+        fixed top-[64px] w-full hidden bg-white z-[10] transition
+      `"
     >
       <ul
         class="p-10 left-0 w-full flex flex-col items-center gap-4 bg-white transition "
@@ -83,14 +96,17 @@ function toggle () {
     </div>
 
     <nav
-      class="
+      id="navigation"
+      :class="`
         h-[64px] w-full
         bg-white
         flex justify-between items-center
         px-10
         fixed
         z-[50]
-      "
+        transition
+        ${isFooterVisible ? 'translate-y-[-64px]' : ''}
+      `"
     >
       <h1 class="text-xl text-blue-500 font-josefin">
         {{ constants.SITE_TITLE }}

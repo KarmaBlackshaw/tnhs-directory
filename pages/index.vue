@@ -25,6 +25,8 @@ setInterval(() => {
     <home-call-to-action />
 
     <the-footer />
+
+    <the-scroll-to-top />
   </div>
 </template>
 

@@ -1,9 +1,10 @@
 <script setup>
-const isShowSplashScreen = ref(true)
 
+const isShowSplashScreen = ref(false)
 setInterval(() => {
   isShowSplashScreen.value = false
 }, 3000)
+
 </script>
 
 <template>

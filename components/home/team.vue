@@ -28,8 +28,8 @@ const users = [
   },
   {
     name: 'Julius Reil Yves Alvior',
-    description: 'A hardcore encoder',
-    thumbnail: thumbnailMap['villahermosa-ernie-jeash.jpg'],
+    description: 'Someday you will all write qoutes and put my name under it',
+    thumbnail: thumbnailMap['alviour-julius.jpg'],
     socials: [
       { type: 'facebook', url: 'https://www.facebook.com/KarmaBlackshaw/' },
       { type: 'instagram', url: 'https://www.instagram.com/karmablackshaw/?hl=en' }
@@ -87,33 +87,33 @@ const usersFiltered = computed(() => {
 
       <div
         v-if="usersFiltered.length"
-        class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10"
+        class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5"
       >
         <div
           v-for="(user, userKey) in usersFiltered"
           :key="userKey"
-          class="flex sm:flex-col gap-5"
+          class="flex sm:flex-col gap-5 flex-wrap"
           data-aos="zoom-out-up"
           :data-aos-delay="200 * ethoKey"
         >
-          <div class="flex-1">
+          <div class="overflow-hidden max-h-[150px] flex items-center">
             <img
+              class="shrink-0 w-full h-auto hover:scale-125 transition"
               :src="user.thumbnail"
               alt=""
-              class="wh-"
             >
           </div>
 
-          <div class="flex-1 sm:flex sm:flex-col gap-1">
+          <div class="flex-1 sm:flex sm:flex-col gap-1 text-center">
             <h1 class="font-semibold text-sm">
               {{ user.name }}
             </h1>
 
-            <h2 class="text-sm text-black/50 font-poppins">
+            <h2 class="text-xs text-black/50 font-poppins">
               {{ user.description }}
             </h2>
 
-            <ul class="flex gap-2">
+            <ul class="flex gap-2 justify-center">
               <li
                 v-for="(social, socialKey) in user.socials"
                 :key="socialKey"

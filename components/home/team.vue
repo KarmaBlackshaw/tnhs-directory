@@ -29,11 +29,7 @@ const users = [
   {
     name: 'Julius Reil Yves Alvior',
     description: 'Someday you will all write qoutes and put my name under it',
-    thumbnail: thumbnailMap['alviour-julius.jpg'],
-    socials: [
-      { type: 'facebook', url: 'https://www.facebook.com/KarmaBlackshaw/' },
-      { type: 'instagram', url: 'https://www.instagram.com/karmablackshaw/?hl=en' }
-    ]
+    thumbnail: thumbnailMap['alviour-julius.jpg']
   }
 ]
 
@@ -92,16 +88,21 @@ const usersFiltered = computed(() => {
         <div
           v-for="(user, userKey) in usersFiltered"
           :key="userKey"
-          class="flex sm:flex-col gap-5 flex-wrap"
+          class="flex flex-col gap-5 flex-wrap"
           data-aos="zoom-out-up"
           :data-aos-delay="200 * ethoKey"
         >
-          <div class="overflow-hidden max-h-[150px] flex items-center">
-            <img
-              class="shrink-0 w-full h-auto hover:scale-125 transition"
-              :src="user.thumbnail"
-              alt=""
-            >
+          <div
+            class="
+              overflow-hidden
+              h-[200px]
+              flex items-center
+              bg-cover bg-center
+            "
+            :style="{
+              backgroundImage: `url(${user.thumbnail})`
+            }"
+          >
           </div>
 
           <div class="flex-1 sm:flex sm:flex-col gap-1 text-center">
@@ -109,7 +110,7 @@ const usersFiltered = computed(() => {
               {{ user.name }}
             </h1>
 
-            <h2 class="text-xs text-black/50 font-poppins">
+            <h2 class="text-xs text-black/50 font-poppins italic">
               {{ user.description }}
             </h2>
 
